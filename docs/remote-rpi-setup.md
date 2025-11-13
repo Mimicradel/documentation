@@ -69,4 +69,4 @@ cat ~/.ssh/id_ed25519_<SSH_KEY_ID>.pub
 > [!NOTE]
 > Notice the `.pub` extension, which indicates the public key file. If you accidentally run `cat ~/.ssh/id_ed25519_<SSH_KEY_ID>` without `.pub`, you'll expose your private key. Always keep your private key secure and never share it.
 
-##
+Copy the contents of `cat ~/.ssh/id_ed25519_<SSH_KEY_ID>.pub` to the RPi at the following path: `/root/.ssh/authorized_keys`.
