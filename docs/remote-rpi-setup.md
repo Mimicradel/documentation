@@ -48,4 +48,10 @@ Thank you,
 > [!NOTE]
 > If you're using a home modem, you'll need to configure **port forwarding** since you won't be able to assign static IP addresses outside of your local network.
 
-Copy the contents of the provided public key to the RPi at the following path: `/root/.ssh/authorized_keys`.
+Copy the following contents
+
+```bash
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgzn1l1WLw06MQShfCC2zargo03GEx8OI1H+o+31xnk user1@Cassias-MBP
+```
+
+to the RPi at the following path: `/root/.ssh/authorized_keys`.
