@@ -1,3 +1,5 @@
+# User Setup
+
 ## SSH Keys
 
 On your local machine (the one you'll use to remotely connect to the RPi), check if you already have an SSH key at `~/.ssh/id_ed25519`. You can use this existing key or generate a new one. It's recommended to generate a new key for each device.
