@@ -55,3 +55,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgzn1l1WLw06MQShfCC2zargo03GEx8OI1H+o+31xnk
 ```
 
 to the RPi at the following path: `/root/.ssh/authorized_keys`.
+
+> [!NOTE]
+> If the file does not exist you can make it using the following
+> `sudo mkdir -p /root/.ssh && sudo nano /root/.ssh/authorized_keys`
