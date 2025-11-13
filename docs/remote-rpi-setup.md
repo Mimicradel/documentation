@@ -28,7 +28,7 @@ Thank you,
 <YOUR_NAME>
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > You will need the RPi's MAC address to assign it a static IP.
 >
 > For **WiFi**, use:
