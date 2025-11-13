@@ -1,15 +1,15 @@
-# How to Setup a Raspberry Pi for Remote Access
+# How to Set Up a Raspberry Pi for Remote Access
 
 ## Prerequisites
 
-1. A raspberry pi (rpi)
-2. Network admin or authorization to assign static ip addresses
+1. A Raspberry Pi (RPi)
+2. Network administrator access or authorization to assign static IP addresses
 
 ## Network Setup
 
-1. Assign any ip address to the rpi but be sure to keep a record of it. As an example in this doc we will use `<RPI_ADDR>`.
-2. Ensure that this network is public facing so that `<RPI_ADDR>` can be pinged from the internet.
-3. Send an email or write to IT services. Here is an example:
+1. Assign an IP address to the RPi and record it for future reference. For this guide, we'll use `<RPI_ADDR>` as a placeholder.
+2. Ensure the network is publicly accessible so that `<RPI_ADDR>` can be pinged from the internet.
+3. Contact your IT services department to request a static IP address. Here's an example email template:
 
 ```txt
 Hello ITS Team,
@@ -29,49 +29,44 @@ Thank you,
 ```
 
 > [!NOTE]
-> You will need to know the rpi's MAC Address in order to assign it a static ip.
-> If using `wifi` you can do this with
+> You will need the RPi's MAC address to assign it a static IP.
+>
+> For **WiFi**, use:
 >
 > ```bash
 > ip addr show dev wlan0 | grep -i ether
 > ```
 >
-> or if using `ethernet`
+> For **Ethernet** (preferred):
 >
 > ```bash
 > ip addr show dev eth0 | grep -i ether
 > ```
 >
-> Ethernet is preferred.
->
-> The MAC Address should look something like `01:23:45:67:89:ab:cd`.
+> The MAC address should look something like `01:23:45:67:89:ab:cd`.
 
 > [!NOTE]
-> If you would like to use a home modem you will need to utilize `Port Forwarding`
-> as you will not be able to assign static ips outside of your modem.
+> If you're using a home modem, you'll need to configure **port forwarding** since you won't be able to assign static IP addresses outside of your local network.
 
 ## SSH Keys
 
-On your local machine. (The one you will be using to remotely connect to the pi) check
-if you already have an ssh key at `~/.ssh/id_ed25519` you can either use this one or generate a new key.
-I always recommend generating a new key per each new device.
+On your local machine (the one you'll use to remotely connect to the RPi), check if you already have an SSH key at `~/.ssh/id_ed25519`. You can use this existing key or generate a new one. It's recommended to generate a new key for each device.
 
-To generate a new key use the following command:
+To generate a new key, use the following command:
 
 ```bash
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_<SSH_KEY_ID>
 ```
 
-Where `<SSH_KEY_ID>` is a name you get to specify to identify what the key will be used for.
-Since we have the name of the RPi I would call it `~/.ssh/id_ed25519_<NAME_OF_MACHINE>` or `~/.ssh/id_ed25519_rpi`
+Replace `<SSH_KEY_ID>` with a descriptive name to identify what the key will be used for. For example, use `~/.ssh/id_ed25519_<NAME_OF_MACHINE>` or `~/.ssh/id_ed25519_rpi`.
 
-Then you will need to copy the contents of the public key. To view the contents of the file in the terminal use:
+To view the contents of your public key in the terminal:
 
 ```bash
 cat ~/.ssh/id_ed25519_<SSH_KEY_ID>.pub
 ```
 
 > [!NOTE]
-> Notice the `.pub` at the end of the key. This is important as if you `cat` the `~/.ssh/id_ed25519_<NAME_OF_MACHINE>` you will be showing others your private key. Always keep this safe and do not let it be leaked from your personal machine.
+> Notice the `.pub` extension, which indicates the public key file. If you accidentally run `cat ~/.ssh/id_ed25519_<SSH_KEY_ID>` without `.pub`, you'll expose your private key. Always keep your private key secure and never share it.
 
 ##
